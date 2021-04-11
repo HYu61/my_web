@@ -45,7 +45,7 @@ cmake-build-*/
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
-# File-based project format
+# File-based projects format
 *.iws
 
 # IntelliJ
@@ -195,11 +195,11 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+# Spyder projects settings
 .spyderproject
 .spyproject
 
-# Rope project settings
+# Rope projects settings
 .ropeproject
 
 # mkdocs documentation
