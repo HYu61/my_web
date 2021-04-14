@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the projects like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import STATICFILES_FINDERS
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -24,7 +26,7 @@ SECRET_KEY = 'django-insecure-yp*&(=x^#c9jjj#c%_8461!r(&ucpjxrg9#^w977pugg_xmwcg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -37,14 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'projects',
-    'corsheaders',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # CORS
-    'corsheaders.middleware.CorsMiddleware',
+    # # CORS
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -130,14 +132,26 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [BASE_DIR / "static"]
+# STATICFILES_DIRS = [BASE_DIR / "static"]
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'https://localhost:3000',
-    'https://localhost:8000',
-    'http://localhost:3000'
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# STATICFILES_FINDERS = (
+#
+#     "django.contrib.staticfiles.finders.FileSystemFinder",
+#
+#     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+#
+# )
+
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = (
+#     'https://localhost:3000',
+#     'https://localhost:8000',
+#     'http://localhost:3000'
+# )
 
 
 # Default primary key field type
