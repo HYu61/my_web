@@ -25,8 +25,7 @@ class Projects(models.Model):
     image = models.ImageField(upload_to='projects/image', blank=True, null=True)
     video = models.FileField(upload_to='projects/video', blank=True, null=True)
     cate = models.ForeignKey(Categories, on_delete=models.CASCADE)
-    tags = models.CharField(max_length=255, blank=True, null=True, default='',
-                            verbose_name='Tags for the projects')
+    tags = models.CharField(max_length=255, default='', verbose_name='Tags for the projects')
     published = models.BooleanField(default=False)
     priority = models.PositiveSmallIntegerField(default=1)
 

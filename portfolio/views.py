@@ -16,10 +16,17 @@ def nav_info():
 
 
 def home_page_and_footer_info():
-    home_page_info = HomePageFooterContent.objects.get(pk=1)
+    # home_page_info = HomePageFooterContent.objects.get(name='home_page_and_footer_info')
+    home_page_info = HomePageFooterContent.objects.filter(name='home_page_and_footer_info').first()
+    content = 'Hello -- Please modify it by add one entry with the name "home_page_and_footer_info" in the database'
+    footer = '<p class="m-0 text-center text-white">Copyright &copy;-- Please modify it by add one entry with the ' \
+             'name "home_page_and_footer_info" in the database</p> '
+    if home_page_info is not None:
+        content = home_page_info.content
+        footer = home_page_info.footer
     result = {
-        'home_page_content': home_page_info.content,
-        'footer_content': home_page_info.footer
+        'home_page_content': content,
+        'footer_content': footer
     }
     return result
 
