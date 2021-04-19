@@ -18,9 +18,10 @@
             {#            {% endif %}#}
             <div class="col-lg-4 col-md-6 mt-5">
                 {#            <div class="col mt-5">#}
-                <img class="img-thumbnail img-fluid mb-2 rounded"
+
+            <a href="{{ request.build_absolute_uri }}media/{{ project.image }}" target="_blank"><img class="img-fluid mb-2 rounded"
                      src="/media/{{ project.image }}"
-                     style="width: 200px; height:200px">
+                     style="width: 345px; height:200px"></a>
                 <h4>{{ project.title }}</h4>
 
                 {% for tag in project.tags_as_list %}
@@ -51,7 +52,7 @@
                                                                                  alt="github_link"></a>
                     {% endif %}
                     {% if project.video != '' %}
-                        <a href="{{ request.build_absolute_uri }}media/{{ project.video }}"><img class="logo-icon me-3"
+                        <a href="{{ request.build_absolute_uri }}media/{{ project.video }}" target="_blank"><img class="logo-icon me-3"
                                                                                                  src="{% static 'icon/demo_video.png' %}"
                                                                                                  alt="demo_video_link"></a>
                     {% endif %}
